@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `login_web` (
 ## Café in Code out (捐赠)
 Paypal or 支付宝 ：qfdk2010#gmail.com
 
-<img src="./img/2.jpg" width="250px"/>
+<img src="https://raw.githubusercontent.com/qfdk/NNLLS/master/img/2.JPG" width="250px"/>
 
 ## License Apache 2
 World is powered by solitude
