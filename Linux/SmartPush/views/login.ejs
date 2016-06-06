@@ -1,0 +1,35 @@
+<% include head.ejs %>
+<% include nav.ejs %>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>Smart Push</h1>
+        <p>http://kfc-harpie.istic.univ-rennes1.fr</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+            <form class="form-horizontal" method="post" action="/login">
+                <div class="form-group">
+                    <label for="userInput" class="col-sm-2 control-label">User</label>
+                    <div class="col-sm-4">
+                        <input type="text" name="user" class="form-control" id="userInput" placeholder="User">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="passwdInput" class="col-sm-2 control-label">Password</label>
+                    <div class="col-sm-4">
+                        <input type="password" name="passwd" class="form-control" id="passwdInput"
+                               placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-4">
+                        <button type="submit" class="btn btn-info">Login</button>
+                    </div>
+                </div>
+            </form>
+    </div>
+
+<% include foot.ejs %>

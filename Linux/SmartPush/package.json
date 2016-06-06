@@ -1,0 +1,22 @@
+{
+  "name": "SmartPush",
+  "version": "1.1.0",
+  "author": "qfdk",
+  "description": "SmartPush blancing",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "ejs": "~2.3.3",
+    "express": "~4.13.1",
+    "express-session": "^1.13.0",
+    "md5": "^2.1.0",
+    "morgan": "~1.6.1",
+    "mysql": "^2.10.2",
+    "serve-favicon": "~2.3.0"
+  }
+}

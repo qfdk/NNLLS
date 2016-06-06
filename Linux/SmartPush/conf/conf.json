@@ -1,0 +1,19 @@
+{
+  "db": {
+    "host": "😄",
+    "user": "😄",
+    "password": "😄",
+    "database": "😄",
+    "connectionLimit": 50
+  },
+  "vm": [
+    "rtmp://kfc-streaming.istic.univ-rennes1.fr/live",
+    "rtmp://kfc-sisilafamille.istic.univ-rennes1.fr/live"
+  ],
+  "base_url":"rtmp://kfc-harpie.istic.univ-rennes1.fr/live",
+  "port":8080,
+  "admin":{
+    "user":"😄",
+    "passwd":"😄"
+  }
+}

@@ -1,0 +1,91 @@
+<% include head.ejs %>
+<% include nav.ejs %>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>SmartPush</h1>
+        <p>select fun, profit from real_world where relational=false;</p>
+    </div>
+</div>
+
+
+<div class="container">
+    <form class="form-inline" method="get" action="/addVm">
+        <div class="form-group">
+            <label for="vm">Machine de traitement : </label>
+            <div class="input-group">
+                <input type="text" name="url" class="form-control" id="vm" placeholder="rtmp://">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                <!--<th>Nb.</th>-->
+                <th>Push url</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <% for(var i = 0; i < vms.length; i++) { %>
+            <tr id="vm<%= i %>">
+                <!--<td><%= i + 1 %></td>-->
+                <td><%= vms[i] %>/{user}</td>
+                <td>
+                    <button data-id="<%= i %>" onclick="removeVm(this)" class="btn btn-danger">
+                        <span class="glyphicon glyphicon-trash"></span>&nbsp;Remove
+                    </button>
+                </td>
+            </tr>
+            <% } %>
+
+            </tbody>
+        </table>
+        <p class="alert alert-info"> Total : <span id="vmSpan"><%= vms.length %></span></p>
+    </div>
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>User</th>
+                <th>Link</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <% for(var i = 0; i < users.length; i++) { %>
+            <tr id="user-<%= users[i].user %>">
+                <td><%= users[i].user %></td>
+                <td><%= users[i].url %></td>
+                <td>
+                    <% if(users[i].is_locked==0){%>
+                    <a href="/banUser?user=<%= users[i].user %>" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Ban</a>
+                    <% }else {%>
+                    <a href="/activUser?user=<%= users[i].user %>" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Active</a>
+                    <%}%>
+                </td>
+            </tr>
+            <% } %>
+
+            </tbody>
+        </table>
+        <p class="alert alert-info"> Total : <span id="userSpan"><%= users.length %></span></p>
+    </div>
+
+    <script>
+        function removeVm(data) {
+            var id = data.getAttribute('data-id');
+            $.get('/removeVm?id=' + id, function (err, data) {
+                if (data == 'success') {
+                    $('#vm' + id).remove();
+                    $('#vmSpan').html($('#vmSpan').html()-1);
+                    console.log('remove ok');
+                }
+            });
+        }
+    </script>
+<% include foot.ejs %>
