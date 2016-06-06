@@ -19,8 +19,21 @@
 - [Web (Client + player)](https://github.com/qfdk/projetESIR/tree/master/Web) 建议根据要求重写UI
 
 ## Todo
-- 重新写UI
+- 重新写WebUI
 
+## SQL
+
+```
+CREATE TABLE IF NOT EXISTS `login_web` (
+  `nom` varchar(40) DEFAULT NULL,
+  `prenom` varchar(40) DEFAULT NULL,
+  `identifiant` varchar(40) NOT NULL,
+  `mdp` varchar(40) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `is_locked` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+```
 
 ## License Apache 2
 World is powered by solitude
