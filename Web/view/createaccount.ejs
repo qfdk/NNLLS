@@ -1,0 +1,38 @@
+<% include head.ejs %>
+<% include nav.ejs %>
+
+<div class="container">
+    <div class="row" id="pwd-container">
+
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <section class="login-form">
+
+                <form method="post" action="#" id="creation" role="login">
+                    <h4 style="color:#FF0000"> <%= erreur %> </h4>
+                    <h3> Créer un compte<i class="fa fa-hand-spock-o" aria-hidden="true"></i></h3>
+                    <input type="text" name="nom" id="nom" placeholder="Nom" required class="form-control input-lg"/>
+                    <input type="text" name="prenom" id="prenom" placeholder="Prénom" required
+                           class="form-control input-lg"/>
+                    <input type="email" name="email" id="email" placeholder="Email" required
+                           class="form-control input-lg"/>
+                    <input type="identifiant" name="identifiant" id="identifiant" placeholder="Identifiant" required
+                           class="form-control input-lg"/>
+                    <input type="password" name="mdp" class="form-control input-lg" id="password" placeholder="Password"
+                           required/>
+                    <div class="pwstrength_viewport_progress"></div>
+
+                    <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Créer</button>
+                    <div>
+                        Déja utilisateur ? <a href="/login">se connecter</a>
+                    </div>
+
+                </form>
+            </section>
+        </div>
+
+        <div class="col-md-4"></div>
+
+    </div>
+</div>
+<% include foot.ejs %>

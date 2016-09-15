@@ -1,0 +1,36 @@
+<% include head.ejs %>
+<% include nav.ejs %>
+
+<div class="container w centered">
+    <h1>Start live</h1>
+    <p class="alert alert-info">Les informations suivantes vous serviront à streamer sur notre plate-forme à partir d'un
+        logiciel tierce.
+        <br>Pour être autorisé à diffuser via Live Stream ESIR, veuillez cliquer sur le bouton suivant !
+    </p>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <a href="http://api.qfdk.me:8080/play?user=<%= userName %>&passwd=xxx" type="submit" name="go"
+               class="btn btn-lg btn-primary btn-block">Je veux diffuser!</a>
+            <p>Bon avec even OBS, je gere avec diffusion du serveur kfc-harpie, donc client click streaming dans OBS,
+                kfc-harpie va l'ajouter :) ce button n'est pas utile.</p>
+            <br>
+            <input id="url" value="" type="text" placeholder="URL" required class="form-control input-lg"/>
+            <input id="key" value="" type="text" placeholder="KEY" required class="form-control input-lg"/>
+        </div>
+
+    </div>
+    <br>
+    <!-- container -->
+    <p class="alert alert-danger">Toute personne disposant de cette clé peut diffuser des contenus en direct à votre
+        insu. Ne la communiquez pas. </p>
+</div>
+
+<script>
+    $.get('http://api.qfdk.me:8080/api/info?user=<%= userName %>', function (data, status) {
+        console.log(data);
+        $('#url').attr('value', data.push_url);
+        $('#key').attr('value', data.key);
+    });
+</script>
+
+<% include foot.ejs %>

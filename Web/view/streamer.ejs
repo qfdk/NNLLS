@@ -1,0 +1,48 @@
+<% include head.ejs %>
+<% include nav.ejs %>
+
+<div class="container w">
+    <div class="row centered">
+        <div class="col-md-7">
+            <div id="mediaspace2"></div>
+            <script>
+                jwplayer("mediaspace2").setup({
+                    file: "<%= stream %>",
+                    width: "100%",
+                    aspectratio: "16:9",
+                    autostart: true,
+                    rtmp: {
+                        bufferlength: 0.1
+                    }
+                });
+            </script>
+        </div>
+
+        <div class="col-md-5">
+            <ul id="messages"></ul>
+            <form action="" id="chatbox">
+                <input id="m" placeholder="Ecrivez un message..." required="" autocomplete="off"
+                       class="form-control input-md" type="text">
+                <!-- <button type="submit" name="go" class="btn btn-md btn-primary">Envoyer</button> -->
+            </form>
+        </div>
+    </div>
+</div>
+
+<% include foot.ejs %>
+<script>
+    var socket = io();
+    $('form').submit(function () {
+        socket.emit('chat-message', $('#m').val(), '<%= userName %>', '<%= stream %>');
+        $('#m').val('');
+        return false;
+    });
+    socket.on('chat-message', function (pseudo, color, msg, stream) {
+        if (stream == '<%= stream %>') { // Si le message nous est pas destiné, on l'affiche pas
+            $('#messages').append($('<li>[' + new Date().toTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1")
+                    + '] <span style="color:' + color + '">' + pseudo + "</span> : "
+                    + msg + '</li>'));
+            $("#messages").animate({scrollTop: $("#messages").height()}, 300);
+        }
+    });
+</script>

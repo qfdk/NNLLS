@@ -1,0 +1,9 @@
+{
+  "db": {
+    "host": "localhost",
+    "user": "root",
+    "password": "",
+    "database": "korpu",
+    "connectionLimit": 50
+  }
+}

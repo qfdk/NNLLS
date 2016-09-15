@@ -1,0 +1,25 @@
+{
+  "name": "web UI",
+  "version": "1.0.0",
+  "description": "RTMP Stream",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "mysql": "latest",
+    "express": "latest",
+    "url": "latest",
+    "path": "latest",
+    "ejs": "latest",
+    "socket.io": "latest",
+    "body-parser": "^1.8.1",
+    "md5":"latest",
+    "cookie-parser":"^1.4.2",
+    "express-session": "~1.0.2",
+    "node-rest-client":"1.8.0",
+    "html-escape": "latest"
+  },
+  "author": "qfdk",
+  "license": "ISC"
+}

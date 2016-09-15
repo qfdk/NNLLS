@@ -1,0 +1,21 @@
+<% include head.ejs %>
+<% include nav.ejs %>
+
+<div class="container w">
+    <div class="row centered">
+        <h2>Liens disponibles</h2>
+        <% stream_list.forEach(function(d) { %>
+        <div class="col-lg-4">
+            <h4><%= d.user %></h4>
+            <img width="300" height="200" src="/img/player.png"/>
+            <form action="streamer" method="post">
+                <input type="hidden" name="stream" value="<%= d.url %>">
+                <input class="btn btn-md btn-primary" type="submit" value="Accéder à ce stream">
+            </form>
+        </div>
+        <% }); %>
+        <br>
+        <br>
+    </div>
+</div><!-- container -->
+<% include foot.ejs %>
