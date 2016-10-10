@@ -27,7 +27,6 @@ app.use(require('express').static(path.join(__dirname, './assets')));
 // -------------- Configuring express to use body-parser ----------
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-//app.use(bodyParser());
 app.use(cookieParser());
 app.use(expressSession({secret: 'coucou'}));
 
@@ -45,6 +44,7 @@ app.get('/index', function (req, res) {
     var req = client.get("http://api.qfdk.me:8080/api/list", function (data, response) {
         stream_list = data;
         stream_list.push({user: 'Yveline', url: 'rtmp://rtmp.infomaniak.ch/livecast/yveline1'});
+        stream_list.push({user: 'NASA', url: 'https://www.youtube.com/watch?v=njCDZWTI-xg'});
         stream_list.push({user: 'Best moment decima', url: 'https://www.youtube.com/watch?v=krqdIHzrRBc'});
 
         res.render('streams', {"stream_list":stream_list, "userName": userName});
@@ -95,11 +95,11 @@ app.get('/stream', function (req, res) {
 });
 
 app.post("/streamer", function (req, res) {
-    if (req.session.isConnected) {
+    // if (req.session.isConnected) {
         res.render('streamer', {'stream': req.body.stream, 'userName': req.session.userName});
-    } else {
-        res.render('login', {'erreur': '','userName':user});
-    }
+    // } else {
+    //     res.render('login', {'erreur': '','userName':user});
+    // }
 });
 
 app.get("/streamer", function (req, res) {

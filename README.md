@@ -1,28 +1,17 @@
-##Node.js+Nginx+Linux+Live Streaming
+# Node.js+Nginx+Linux+Live Streaming
 
-## Documentation en Français
-
-- [Rasberry (Caméra)](https://github.com/qfdk/projetESIR/tree/master/Raspberry
-) 简单的命令让树莓派也可以推流
-
-- [Back-end (SmartPush system + kfc-* + kfc-nginx)](https://github.com/qfdk/projetESIR/tree/master/Linux)
- 
-- [Front-end (Client + player)](https://github.com/qfdk/projetESIR/tree/master/Web) 建议根据要求重写UI
-
+A solution of Live Streaming by using `Node.js` and `Nginx`
 ## Introduction
 
-本项目使用 `Node.js`+`Nginx` 进行直播，后端为`Node.js`，可以自行添加处理服务器来进行流的处理。
-前端可以直接调用后端api，如果成功将返回json数组便于显示，不同的质量对应不同的url。
+This is a project using `Node.js`, it's used for Live Streaming. You can add the resources from internet or use your own streaming.
 
-经过测试，视频播放延时在4s之内。
+You can use your phone, your camera or all the object which has a camera could be used for streaming.
+This is the architecture of project, we can use the load balancing in our system. Thanks to `SmartPush` we can balance the requests in differences VM(Nginx with rtmp module). In `SmartPush` we have a REST-API for GUI. The latency is about 3 seconds.
 
 ![](./img/1.png)
 
-左侧的是是我们的机器（手机，电脑，raspi等等一系列可以录制推流rtmp的工具），中间的模块，就叫它`Smart-Push`好了，
-它的作用是权限控制和接受客户端来的流，再进行流的分发实现流处理的负载均衡，它还包括了一个简单的API服务，前端可以进行请求。
-`VM*` 系列是处理流服务器，可以把流处理成不通的格式。 
-最后是`web`前端，这个建议大家自己写原因嘛，自己看代码就知道了，建议数据库结构也重新定义一下，由于项目时间比较敢就没有过多计较代码风格。
-文档基本算是完全了，有什么不懂的可以直接联系。
+This is a full solution of Live Streaming, you can find GUI in `Front-end` and Smart-Push in `Back-end` with all docs in each directory.
+
 
 ## Archi
 
@@ -33,7 +22,7 @@
 │   ├── SmartPush
 │   └── img
 ├── Front-end
-│   ├── todo_here.md
+│   ├── Web
 ├── README.md
 ├── Raspberry
 │   ├── README.md
@@ -43,9 +32,17 @@
     ├── 1.png
     └── 2.JPG
 ```
-- 重新写WebUI
 
-## SQL
+## Documentation en Français
+
+- [Rasberry (Caméra)](https://github.com/qfdk/projetESIR/tree/master/Raspberry
+) 
+
+- [Back-end (SmartPush system + kfc-* + kfc-nginx)](https://github.com/qfdk/projetESIR/tree/master/Linux)
+ 
+- [Front-end (Client + player)](https://github.com/qfdk/projetESIR/tree/master/Web) 
+
+## SQL for WEB
 
 ```
 CREATE TABLE IF NOT EXISTS `login_web` (
@@ -58,8 +55,8 @@ CREATE TABLE IF NOT EXISTS `login_web` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ```
-## Café in Code out (捐赠)
-Paypal or 支付宝 ：qfdk2010#gmail.com
+## For Café (捐赠)
+Paypal ：qfdk2010#gmail.com
 
 <img src="https://raw.githubusercontent.com/qfdk/NNLLS/master/img/2.JPG" width="250px"/>
 
