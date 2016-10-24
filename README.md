@@ -33,7 +33,7 @@ This is a full solution of Live Streaming, you can find GUI in `Front-end` and S
     └── 2.JPG
 ```
 
-## Documentation en Français
+## Documentation
 
 - [Rasberry (Caméra)](https://github.com/qfdk/projetESIR/tree/master/Raspberry
 ) 
@@ -55,10 +55,8 @@ CREATE TABLE IF NOT EXISTS `login_web` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ```
-## For Café (捐赠)
+## For Café
 Paypal ：qfdk2010#gmail.com
-
-<img src="https://raw.githubusercontent.com/qfdk/NNLLS/master/img/2.JPG" width="250px"/>
 
 ## License Apache 2
 World is powered by solitude
